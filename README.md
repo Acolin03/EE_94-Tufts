@@ -27,6 +27,7 @@ python run_ctgan_gen.py --train_ctgan --create_new_dataset --no-generate-pareto 
     --data_path data/rram_stanford.mat \
     --ctgan_model_path ctgan_recommendation_results/ctgan_model.pkl \
     --dataset_path ctgan_recommendation_results/rram_ctgan_dataset.pt
+```
 
 Once trained, use this command to generate 10,000 "Student" candidates. Each point is vetted by the **PINN Referee** in real-time to ensure physical validity before plotting.
 
@@ -38,3 +39,4 @@ python run_ctgan_gen.py --generate_pareto \
     --data_path data/rram_stanford.mat \
     --ctgan_model_path ctgan_recommendation_results/ctgan_model.pkl \
     --dataset_path ctgan_recommendation_results/rram_ctgan_dataset.pt
+```
