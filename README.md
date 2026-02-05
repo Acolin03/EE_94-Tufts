@@ -29,8 +29,8 @@ python run_ctgan_gen.py --train_ctgan --create_new_dataset --no-generate-pareto 
     --dataset_path ctgan_recommendation_results/rram_ctgan_dataset.pt
 ```
 
+### Phase 2: Pareto Discovery & Visualization (10k Students)
 Once trained, use this command to generate 10,000 "Student" candidates. Each point is vetted by the **PINN Referee** in real-time to ensure physical validity before plotting.
-
 ```bash
 python run_ctgan_gen.py --generate_pareto \
     --diverse_candidates 10000 \
