@@ -1,0 +1,54 @@
+[
+    {
+        "material": "Al2O3",
+        "pos_voltage": 1.6096431772706394,
+        "neg_voltage": -3.2506865534946017,
+        "dt": 5.018669742693663e-08,
+        "optimization_target": "Overall Performance",
+        "predicted_performance": {
+            "endurance": 280235856.7952751,
+            "total_switching_time": 5.6800502079568105e-09,
+            "energy": 4.82110823485371e-10
+        },
+        "score": 0.1527405035938909
+    },
+    {
+        "material": "Al2O3",
+        "pos_voltage": 1.5873145128009336,
+        "neg_voltage": -1.427943210119445,
+        "dt": 5.0192119942883836e-08,
+        "optimization_target": "Endurance Optimization",
+        "predicted_performance": {
+            "endurance": 5378639205.714302,
+            "total_switching_time": 1.2567056728585158e-08,
+            "energy": 2.8539976631991593e-10
+        },
+        "score": 0.5987247974832042
+    },
+    {
+        "material": "Al2O3",
+        "pos_voltage": 1.5925350848696007,
+        "neg_voltage": -3.1584913937447268,
+        "dt": 5.0161711939588026e-08,
+        "optimization_target": "Energy Optimization",
+        "predicted_performance": {
+            "endurance": 280235856.7952751,
+            "total_switching_time": 7.479059149773093e-09,
+            "energy": 4.6410253418116554e-10
+        },
+        "score": 0.1527405035938909
+    },
+    {
+        "material": "Al2O3",
+        "pos_voltage": 1.6031148333182756,
+        "neg_voltage": -3.2631617571024223,
+        "dt": 5.016221834347605e-08,
+        "optimization_target": "Switching Time Optimization",
+        "predicted_performance": {
+            "endurance": 280235856.7952751,
+            "total_switching_time": 6.484043524324079e-09,
+            "energy": 4.729457658836367e-10
+        },
+        "score": 0.1527405035938909
+    }
+]

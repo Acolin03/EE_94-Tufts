@@ -1,0 +1,887 @@
+2025-12-19 19:35:05 - ==================================================
+2025-12-19 19:35:05 - Experiment: my_ctgan_test
+2025-12-19 19:35:05 - Start time: 2025-12-19 19:35:05
+2025-12-19 19:35:05 - ==================================================
+
+2025-12-19 19:35:05 - ==================================================
+2025-12-19 19:35:05 - Starting RRAM model training...
+2025-12-19 19:35:05 - ==================================================
+2025-12-19 19:35:05 - Device: cuda
+2025-12-19 19:35:05 - Configuration: {'epochs': 10, 'learning_rate_pinn': 0.0001, 'learning_rate_mlp': 0.0001, 'weight_decay_pinn': 1e-05, 'weight_decay_mlp': 1e-05, 'hidden_size': 32, 'embedding_size': 5, 'save_dir': 'checkpoints', 'data_path': 'data/rram_stanford_0.4V.mat', 'use_pde': False, 'use_full_dataset': False, 'voltage_stride': 0.2, 'exp_name': 'my_ctgan_test', 'seed': 42, 'train_ctgan': True, 'create_new_dataset': True, 'ctgan_epochs': 300, 'ctgan_model_path': 'ctgan_recommendation_results/ctgan_model.pkl', 'dataset_path': 'ctgan_recommendation_results/rram_ctgan_dataset.pt', 'target_energy': 5e-10, 'target_switching_time': 5e-09, 'target_endurance': 1000000.0, 'num_recommendations': 5, 'diverse_candidates': 10000, 'generate_pareto': True, 'output_dir': 'ctgan_recommendation_results', 'model_path': 'checkpoints/pinn_sparse.pth', 'device': 'cuda', 'min_pulse_width': 1e-09, 'max_energy_error_ratio': 0.0, 'energy_penalty_factor': 3.0, 'max_rows_per_file': 10000, 'num_sample_points': 50}
+2025-12-19 19:35:05 - 
+==================================================
+2025-12-19 19:35:05 - Training Dataset: Loading data...
+2025-12-19 19:35:05 - Found 651 sequences
+2025-12-19 19:35:08 - Using target voltage step for non-full dataset: 0.2
+2025-12-19 19:35:08 -   Final target voltages for Al2O3: [-2.0, -1.81, -1.6, -1.4, -1.18, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
+2025-12-19 19:35:08 -   Selected 14 sequences for Al2O3.
+2025-12-19 19:35:08 -   Final target voltages for HfO2: [-2.0, -1.8, -1.6, -1.46, -1.32, 0.4, 0.6, 0.8, 1.0, 1.14, 1.27, 1.44, 1.6, 1.8, 2.0]
+2025-12-19 19:35:08 -   Selected 15 sequences for HfO2.
+2025-12-19 19:35:08 -   Final target voltages for TiO2: [-2.0, -1.8, -1.6, -1.45, 0.4, 0.6, 0.8, 1.0, 1.2, 1.37, 1.54, 1.67, 1.8, 2.0]
+2025-12-19 19:35:08 -   Selected 14 sequences for TiO2.
+2025-12-19 19:35:08 - Total sequences selected across all materials: 43
+2025-12-19 19:35:08 - Using 43 selected sequences for TRAINING.
+2025-12-19 19:35:08 - 
+Dataset split information:
+2025-12-19 19:35:08 - Training set size: 43
+2025-12-19 19:35:08 - Percentage of total: 6.6%
+2025-12-19 19:35:08 - Validation Dataset: Loading data...
+2025-12-19 19:35:08 - Found 651 sequences
+2025-12-19 19:35:11 - Using target voltage step for non-full dataset: 0.2
+2025-12-19 19:35:11 -   Selected 14 sequences for Al2O3.
+2025-12-19 19:35:11 -   Selected 15 sequences for HfO2.
+2025-12-19 19:35:11 -   Selected 14 sequences for TiO2.
+2025-12-19 19:35:11 - Total sequences selected across all materials: 43
+2025-12-19 19:35:11 - Using 608 sequences for VALIDATION (all excluding training targets).
+2025-12-19 19:35:11 - 
+Dataset split information:
+2025-12-19 19:35:11 - Validation set size: 608
+2025-12-19 19:35:11 - Percentage of total: 93.4%
+2025-12-19 19:35:11 - 
+Dataset Material Distribution for Training:
+2025-12-19 19:35:11 - HfO2: 15 sequences (34.9%)
+2025-12-19 19:35:11 - TiO2: 14 sequences (32.6%)
+2025-12-19 19:35:11 - Al2O3: 14 sequences (32.6%)
+2025-12-19 19:35:11 - 
+Dataset Material Distribution for Validation:
+2025-12-19 19:35:11 - Al2O3: 203 sequences (33.4%)
+2025-12-19 19:35:11 - TiO2: 203 sequences (33.4%)
+2025-12-19 19:35:11 - HfO2: 202 sequences (33.2%)
+2025-12-19 19:36:16 - Epoch [1/10]:
+  Train - MLP Loss: 1.893909, PINN Loss: 1.842486
+  Valid - MLP Loss: 1.078690, PINN Loss: 2.317536
+  Valid Metrics - Mean Error: 1625.12% (Max: 8418.59%)
+                - Switch Time Acc: 9.21%
+                - Switch Duration Acc: 7.57%
+                - Plateau Current Acc: 0.16%
+  LRs - PINN: 2.83e-03, MLP: 2.83e-03
+2025-12-19 19:36:16 - New best model (mean_error) saved: 1625.12%
+
+2025-12-19 19:36:16 - New best model saved with switch time accuracy: 9.21%
+2025-12-19 19:36:16 - New best model saved with switch duration accuracy: 7.57%
+2025-12-19 19:36:16 - New best model saved with plateau current accuracy: 0.16%
+2025-12-19 19:36:49 - Epoch [2/10]:
+  Train - MLP Loss: 1.030145, PINN Loss: 0.924237
+  Valid - MLP Loss: 0.602396, PINN Loss: 3.182248
+  Valid Metrics - Mean Error: 1301.17% (Max: 4869.97%)
+                - Switch Time Acc: 1.32%
+                - Switch Duration Acc: 24.51%
+                - Plateau Current Acc: 0.82%
+  LRs - PINN: 7.67e-03, MLP: 7.67e-03
+2025-12-19 19:36:50 - New best model (mean_error) saved: 1301.17%
+
+2025-12-19 19:36:50 - New best model saved with switch duration accuracy: 24.51%
+2025-12-19 19:36:50 - New best model saved with plateau current accuracy: 0.82%
+2025-12-19 19:37:23 - Epoch [3/10]:
+  Train - MLP Loss: 0.716685, PINN Loss: 0.597607
+  Valid - MLP Loss: 0.454287, PINN Loss: 3.282407
+  Valid Metrics - Mean Error: 1042.46% (Max: 3645.33%)
+                - Switch Time Acc: 5.10%
+                - Switch Duration Acc: 0.49%
+                - Plateau Current Acc: 5.76%
+  LRs - PINN: 1.00e-02, MLP: 1.00e-02
+2025-12-19 19:37:23 - New best model (mean_error) saved: 1042.46%
+
+2025-12-19 19:37:23 - New best model saved with plateau current accuracy: 5.76%
+2025-12-19 19:37:56 - Epoch [4/10]:
+  Train - MLP Loss: 0.667706, PINN Loss: 0.528726
+  Valid - MLP Loss: 0.402807, PINN Loss: 2.483736
+  Valid Metrics - Mean Error: 675.89% (Max: 4861.25%)
+                - Switch Time Acc: 24.34%
+                - Switch Duration Acc: 46.38%
+                - Plateau Current Acc: 0.49%
+  LRs - PINN: 9.48e-03, MLP: 9.48e-03
+2025-12-19 19:37:56 - New best model (mean_error) saved: 675.89%
+
+2025-12-19 19:37:56 - New best model saved with switch time accuracy: 24.34%
+2025-12-19 19:37:56 - New best model saved with switch duration accuracy: 46.38%
+2025-12-19 19:38:30 - Epoch [5/10]:
+  Train - MLP Loss: 0.523123, PINN Loss: 0.427599
+  Valid - MLP Loss: 0.380421, PINN Loss: 2.470009
+  Valid Metrics - Mean Error: 703.38% (Max: 6345.72%)
+                - Switch Time Acc: 25.99%
+                - Switch Duration Acc: 46.38%
+                - Plateau Current Acc: 1.15%
+  LRs - PINN: 8.08e-03, MLP: 8.08e-03
+2025-12-19 19:38:30 - New best model saved with switch time accuracy: 25.99%
+2025-12-19 19:39:03 - Epoch [6/10]:
+  Train - MLP Loss: 0.486804, PINN Loss: 0.421418
+  Valid - MLP Loss: 0.335930, PINN Loss: 2.431441
+  Valid Metrics - Mean Error: 808.25% (Max: 4454.43%)
+                - Switch Time Acc: 26.64%
+                - Switch Duration Acc: 46.38%
+                - Plateau Current Acc: 0.99%
+  LRs - PINN: 6.06e-03, MLP: 6.06e-03
+2025-12-19 19:39:03 - New best model saved with switch time accuracy: 26.64%
+2025-12-19 19:39:37 - Epoch [7/10]:
+  Train - MLP Loss: 0.402174, PINN Loss: 0.374536
+  Valid - MLP Loss: 0.335566, PINN Loss: 2.434670
+  Valid Metrics - Mean Error: 873.98% (Max: 3042.09%)
+                - Switch Time Acc: 25.82%
+                - Switch Duration Acc: 42.43%
+                - Plateau Current Acc: 0.66%
+  LRs - PINN: 3.84e-03, MLP: 3.84e-03
+2025-12-19 19:40:10 - Epoch [8/10]:
+  Train - MLP Loss: 0.357305, PINN Loss: 0.344569
+  Valid - MLP Loss: 0.292036, PINN Loss: 2.396590
+  Valid Metrics - Mean Error: 752.43% (Max: 4069.92%)
+                - Switch Time Acc: 25.49%
+                - Switch Duration Acc: 30.26%
+                - Plateau Current Acc: 0.99%
+  LRs - PINN: 1.84e-03, MLP: 1.84e-03
+2025-12-19 19:40:43 - Epoch [9/10]:
+  Train - MLP Loss: 0.313216, PINN Loss: 0.310294
+  Valid - MLP Loss: 0.284598, PINN Loss: 2.387952
+  Valid Metrics - Mean Error: 724.19% (Max: 4418.53%)
+                - Switch Time Acc: 25.49%
+                - Switch Duration Acc: 30.92%
+                - Plateau Current Acc: 0.66%
+  LRs - PINN: 4.73e-04, MLP: 4.73e-04
+2025-12-19 19:41:17 - Epoch [10/10]:
+  Train - MLP Loss: 0.293080, PINN Loss: 0.292781
+  Valid - MLP Loss: 0.283863, PINN Loss: 2.387150
+  Valid Metrics - Mean Error: 721.86% (Max: 4417.82%)
+                - Switch Time Acc: 25.49%
+                - Switch Duration Acc: 30.76%
+                - Plateau Current Acc: 0.66%
+  LRs - PINN: 3.12e-07, MLP: 3.12e-07
+2025-12-19 19:41:17 - Training completed!
+2025-12-19 19:41:17 - Best mean error achieved: 675.89%
+2025-12-19 19:45:44 - ==================================================
+2025-12-19 19:45:44 - Experiment: ctgan_fresh_run
+2025-12-19 19:45:44 - Start time: 2025-12-19 19:45:44
+2025-12-19 19:45:44 - ==================================================
+
+2025-12-19 19:45:44 - ==================================================
+2025-12-19 19:45:44 - Starting RRAM model training...
+2025-12-19 19:45:44 - ==================================================
+2025-12-19 19:45:44 - Device: cuda
+2025-12-19 19:45:44 - Configuration: {'epochs': 50, 'learning_rate_pinn': 0.0001, 'learning_rate_mlp': 0.0001, 'weight_decay_pinn': 1e-05, 'weight_decay_mlp': 1e-05, 'hidden_size': 32, 'embedding_size': 5, 'save_dir': 'checkpoints', 'data_path': 'data/rram_stanford_0.4V.mat', 'use_pde': False, 'use_full_dataset': False, 'voltage_stride': 0.2, 'exp_name': 'ctgan_fresh_run', 'seed': 42, 'train_ctgan': True, 'create_new_dataset': True, 'ctgan_epochs': 300, 'ctgan_model_path': 'ctgan_recommendation_results/ctgan_model.pkl', 'dataset_path': 'ctgan_recommendation_results/rram_ctgan_dataset.pt', 'target_energy': 5e-10, 'target_switching_time': 5e-09, 'target_endurance': 1000000.0, 'num_recommendations': 5, 'diverse_candidates': 10000, 'generate_pareto': True, 'output_dir': 'ctgan_recommendation_results', 'model_path': 'checkpoints/pinn_sparse.pth', 'device': 'cuda', 'min_pulse_width': 1e-09, 'max_energy_error_ratio': 0.0, 'energy_penalty_factor': 3.0, 'max_rows_per_file': 10000, 'num_sample_points': 50}
+2025-12-19 19:45:44 - 
+==================================================
+2025-12-19 19:45:44 - Training Dataset: Loading data...
+2025-12-19 19:45:44 - Found 651 sequences
+2025-12-19 19:45:47 - Using target voltage step for non-full dataset: 0.2
+2025-12-19 19:45:47 -   Final target voltages for Al2O3: [-2.0, -1.81, -1.6, -1.4, -1.18, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
+2025-12-19 19:45:47 -   Selected 14 sequences for Al2O3.
+2025-12-19 19:45:47 -   Final target voltages for HfO2: [-2.0, -1.8, -1.6, -1.46, -1.32, 0.4, 0.6, 0.8, 1.0, 1.14, 1.27, 1.44, 1.6, 1.8, 2.0]
+2025-12-19 19:45:47 -   Selected 15 sequences for HfO2.
+2025-12-19 19:45:47 -   Final target voltages for TiO2: [-2.0, -1.8, -1.6, -1.45, 0.4, 0.6, 0.8, 1.0, 1.2, 1.37, 1.54, 1.67, 1.8, 2.0]
+2025-12-19 19:45:47 -   Selected 14 sequences for TiO2.
+2025-12-19 19:45:47 - Total sequences selected across all materials: 43
+2025-12-19 19:45:47 - Using 43 selected sequences for TRAINING.
+2025-12-19 19:45:47 - 
+Dataset split information:
+2025-12-19 19:45:47 - Training set size: 43
+2025-12-19 19:45:47 - Percentage of total: 6.6%
+2025-12-19 19:45:47 - Validation Dataset: Loading data...
+2025-12-19 19:45:47 - Found 651 sequences
+2025-12-19 19:45:50 - Using target voltage step for non-full dataset: 0.2
+2025-12-19 19:45:50 -   Selected 14 sequences for Al2O3.
+2025-12-19 19:45:50 -   Selected 15 sequences for HfO2.
+2025-12-19 19:45:50 -   Selected 14 sequences for TiO2.
+2025-12-19 19:45:50 - Total sequences selected across all materials: 43
+2025-12-19 19:45:50 - Using 608 sequences for VALIDATION (all excluding training targets).
+2025-12-19 19:45:50 - 
+Dataset split information:
+2025-12-19 19:45:50 - Validation set size: 608
+2025-12-19 19:45:50 - Percentage of total: 93.4%
+2025-12-19 19:45:50 - 
+Dataset Material Distribution for Training:
+2025-12-19 19:45:50 - HfO2: 15 sequences (34.9%)
+2025-12-19 19:45:50 - TiO2: 14 sequences (32.6%)
+2025-12-19 19:45:50 - Al2O3: 14 sequences (32.6%)
+2025-12-19 19:45:50 - 
+Dataset Material Distribution for Validation:
+2025-12-19 19:45:50 - Al2O3: 203 sequences (33.4%)
+2025-12-19 19:45:50 - TiO2: 203 sequences (33.4%)
+2025-12-19 19:45:50 - HfO2: 202 sequences (33.2%)
+2025-12-19 19:46:54 - Epoch [1/50]:
+  Train - MLP Loss: 1.593137, PINN Loss: 1.569046
+  Valid - MLP Loss: 1.153189, PINN Loss: 2.361084
+  Valid Metrics - Mean Error: 1069.52% (Max: 8272.84%)
+                - Switch Time Acc: 53.78%
+                - Switch Duration Acc: 82.07%
+                - Plateau Current Acc: 0.16%
+  LRs - PINN: 5.05e-04, MLP: 5.05e-04
+2025-12-19 19:46:54 - New best model (mean_error) saved: 1069.52%
+
+2025-12-19 19:46:54 - New best model saved with switch time accuracy: 53.78%
+2025-12-19 19:46:54 - New best model saved with switch duration accuracy: 82.07%
+2025-12-19 19:46:54 - New best model saved with plateau current accuracy: 0.16%
+2025-12-19 19:47:27 - Epoch [2/50]:
+  Train - MLP Loss: 0.879241, PINN Loss: 0.869012
+  Valid - MLP Loss: 0.681904, PINN Loss: 2.187851
+  Valid Metrics - Mean Error: 1223.64% (Max: 5723.61%)
+                - Switch Time Acc: 42.11%
+                - Switch Duration Acc: 37.34%
+                - Plateau Current Acc: 0.33%
+  LRs - PINN: 8.16e-04, MLP: 8.16e-04
+2025-12-19 19:47:27 - New best model saved with plateau current accuracy: 0.33%
+2025-12-19 19:48:00 - Epoch [3/50]:
+  Train - MLP Loss: 0.666089, PINN Loss: 0.657719
+  Valid - MLP Loss: 0.739830, PINN Loss: 2.505156
+  Valid Metrics - Mean Error: 1737.91% (Max: 8145.33%)
+                - Switch Time Acc: 52.47%
+                - Switch Duration Acc: 36.51%
+                - Plateau Current Acc: 3.29%
+  LRs - PINN: 1.32e-03, MLP: 1.32e-03
+2025-12-19 19:48:00 - New best model saved with plateau current accuracy: 3.29%
+2025-12-19 19:48:34 - Epoch [4/50]:
+  Train - MLP Loss: 0.613565, PINN Loss: 0.600591
+  Valid - MLP Loss: 0.611608, PINN Loss: 1.980833
+  Valid Metrics - Mean Error: 1546.74% (Max: 7178.48%)
+                - Switch Time Acc: 52.14%
+                - Switch Duration Acc: 30.26%
+                - Plateau Current Acc: 3.12%
+  LRs - PINN: 1.99e-03, MLP: 1.99e-03
+2025-12-19 19:49:08 - Epoch [5/50]:
+  Train - MLP Loss: 0.547229, PINN Loss: 0.530807
+  Valid - MLP Loss: 0.451900, PINN Loss: 1.359965
+  Valid Metrics - Mean Error: 817.93% (Max: 4526.91%)
+                - Switch Time Acc: 50.82%
+                - Switch Duration Acc: 20.56%
+                - Plateau Current Acc: 0.66%
+  LRs - PINN: 2.81e-03, MLP: 2.81e-03
+2025-12-19 19:49:08 - New best model (mean_error) saved: 817.93%
+
+2025-12-19 19:49:41 - Epoch [6/50]:
+  Train - MLP Loss: 0.595235, PINN Loss: 0.563701
+  Valid - MLP Loss: 0.432951, PINN Loss: 1.274084
+  Valid Metrics - Mean Error: 1129.25% (Max: 4613.69%)
+                - Switch Time Acc: 37.66%
+                - Switch Duration Acc: 8.22%
+                - Plateau Current Acc: 0.49%
+  LRs - PINN: 3.73e-03, MLP: 3.73e-03
+2025-12-19 19:50:15 - Epoch [7/50]:
+  Train - MLP Loss: 0.520167, PINN Loss: 0.480948
+  Valid - MLP Loss: 0.421458, PINN Loss: 1.108921
+  Valid Metrics - Mean Error: 1021.52% (Max: 5175.64%)
+                - Switch Time Acc: 42.27%
+                - Switch Duration Acc: 6.58%
+                - Plateau Current Acc: 2.14%
+  LRs - PINN: 4.71e-03, MLP: 4.71e-03
+2025-12-19 19:50:48 - Epoch [8/50]:
+  Train - MLP Loss: 0.565276, PINN Loss: 0.503573
+  Valid - MLP Loss: 0.466567, PINN Loss: 1.037611
+  Valid Metrics - Mean Error: 1000.79% (Max: 5150.19%)
+                - Switch Time Acc: 6.91%
+                - Switch Duration Acc: 8.39%
+                - Plateau Current Acc: 2.63%
+  LRs - PINN: 5.71e-03, MLP: 5.71e-03
+2025-12-19 19:51:22 - Epoch [9/50]:
+  Train - MLP Loss: 0.572541, PINN Loss: 0.492405
+  Valid - MLP Loss: 0.463269, PINN Loss: 0.957888
+  Valid Metrics - Mean Error: 1012.22% (Max: 4619.51%)
+                - Switch Time Acc: 7.57%
+                - Switch Duration Acc: 6.74%
+                - Plateau Current Acc: 6.41%
+  LRs - PINN: 6.70e-03, MLP: 6.70e-03
+2025-12-19 19:51:22 - New best model saved with plateau current accuracy: 6.41%
+2025-12-19 19:51:54 - Epoch [10/50]:
+  Train - MLP Loss: 0.577244, PINN Loss: 0.475308
+  Valid - MLP Loss: 0.461256, PINN Loss: 1.061899
+  Valid Metrics - Mean Error: 1084.32% (Max: 4702.78%)
+                - Switch Time Acc: 22.70%
+                - Switch Duration Acc: 16.61%
+                - Plateau Current Acc: 6.41%
+  LRs - PINN: 7.61e-03, MLP: 7.61e-03
+2025-12-19 19:52:27 - Epoch [11/50]:
+  Train - MLP Loss: 0.609686, PINN Loss: 0.488580
+  Valid - MLP Loss: 0.437516, PINN Loss: 1.478265
+  Valid Metrics - Mean Error: 916.39% (Max: 4202.60%)
+                - Switch Time Acc: 8.22%
+                - Switch Duration Acc: 15.79%
+                - Plateau Current Acc: 0.00%
+  LRs - PINN: 8.42e-03, MLP: 8.42e-03
+2025-12-19 19:53:00 - Epoch [12/50]:
+  Train - MLP Loss: 0.576144, PINN Loss: 0.461005
+  Valid - MLP Loss: 0.385457, PINN Loss: 1.303725
+  Valid Metrics - Mean Error: 872.75% (Max: 4447.48%)
+                - Switch Time Acc: 53.62%
+                - Switch Duration Acc: 6.25%
+                - Plateau Current Acc: 1.15%
+  LRs - PINN: 9.09e-03, MLP: 9.09e-03
+2025-12-19 19:53:33 - Epoch [13/50]:
+  Train - MLP Loss: 0.513758, PINN Loss: 0.406210
+  Valid - MLP Loss: 0.339574, PINN Loss: 0.924555
+  Valid Metrics - Mean Error: 854.16% (Max: 4330.80%)
+                - Switch Time Acc: 58.72%
+                - Switch Duration Acc: 11.18%
+                - Plateau Current Acc: 10.36%
+  LRs - PINN: 9.59e-03, MLP: 9.59e-03
+2025-12-19 19:53:33 - New best model saved with switch time accuracy: 58.72%
+2025-12-19 19:53:33 - New best model saved with plateau current accuracy: 10.36%
+2025-12-19 19:54:06 - Epoch [14/50]:
+  Train - MLP Loss: 0.489998, PINN Loss: 0.385129
+  Valid - MLP Loss: 0.317412, PINN Loss: 0.841692
+  Valid Metrics - Mean Error: 771.89% (Max: 4247.32%)
+                - Switch Time Acc: 27.30%
+                - Switch Duration Acc: 2.47%
+                - Plateau Current Acc: 0.16%
+  LRs - PINN: 9.90e-03, MLP: 9.90e-03
+2025-12-19 19:54:07 - New best model (mean_error) saved: 771.89%
+
+2025-12-19 19:54:40 - Epoch [15/50]:
+  Train - MLP Loss: 0.425619, PINN Loss: 0.334923
+  Valid - MLP Loss: 0.280203, PINN Loss: 0.952252
+  Valid Metrics - Mean Error: 779.46% (Max: 5074.03%)
+                - Switch Time Acc: 21.71%
+                - Switch Duration Acc: 15.30%
+                - Plateau Current Acc: 8.72%
+  LRs - PINN: 1.00e-02, MLP: 1.00e-02
+2025-12-19 19:55:13 - Epoch [16/50]:
+  Train - MLP Loss: 0.363066, PINN Loss: 0.289223
+  Valid - MLP Loss: 0.249436, PINN Loss: 0.839512
+  Valid Metrics - Mean Error: 783.05% (Max: 5209.88%)
+                - Switch Time Acc: 28.45%
+                - Switch Duration Acc: 21.88%
+                - Plateau Current Acc: 10.20%
+  LRs - PINN: 9.98e-03, MLP: 9.98e-03
+2025-12-19 19:55:46 - Epoch [17/50]:
+  Train - MLP Loss: 0.294959, PINN Loss: 0.237223
+  Valid - MLP Loss: 0.184632, PINN Loss: 0.591614
+  Valid Metrics - Mean Error: 709.89% (Max: 4898.13%)
+                - Switch Time Acc: 32.89%
+                - Switch Duration Acc: 34.54%
+                - Plateau Current Acc: 19.24%
+  LRs - PINN: 9.92e-03, MLP: 9.92e-03
+2025-12-19 19:55:46 - New best model (mean_error) saved: 709.89%
+
+2025-12-19 19:55:46 - New best model saved with plateau current accuracy: 19.24%
+2025-12-19 19:56:19 - Epoch [18/50]:
+  Train - MLP Loss: 0.238577, PINN Loss: 0.191742
+  Valid - MLP Loss: 0.164702, PINN Loss: 0.419521
+  Valid Metrics - Mean Error: 568.85% (Max: 3347.64%)
+                - Switch Time Acc: 13.32%
+                - Switch Duration Acc: 13.98%
+                - Plateau Current Acc: 14.97%
+  LRs - PINN: 9.82e-03, MLP: 9.82e-03
+2025-12-19 19:56:19 - New best model (mean_error) saved: 568.85%
+
+2025-12-19 19:56:53 - Epoch [19/50]:
+  Train - MLP Loss: 0.206024, PINN Loss: 0.173504
+  Valid - MLP Loss: 0.202094, PINN Loss: 1.529033
+  Valid Metrics - Mean Error: 657.39% (Max: 4218.67%)
+                - Switch Time Acc: 16.78%
+                - Switch Duration Acc: 45.89%
+                - Plateau Current Acc: 4.61%
+  LRs - PINN: 9.68e-03, MLP: 9.68e-03
+2025-12-19 19:57:26 - Epoch [20/50]:
+  Train - MLP Loss: 0.350222, PINN Loss: 0.288788
+  Valid - MLP Loss: 0.252159, PINN Loss: 1.535120
+  Valid Metrics - Mean Error: 770.10% (Max: 4675.49%)
+                - Switch Time Acc: 25.33%
+                - Switch Duration Acc: 32.57%
+                - Plateau Current Acc: 8.72%
+  LRs - PINN: 9.50e-03, MLP: 9.50e-03
+2025-12-19 19:57:59 - Epoch [21/50]:
+  Train - MLP Loss: 0.334316, PINN Loss: 0.258436
+  Valid - MLP Loss: 0.193065, PINN Loss: 0.696400
+  Valid Metrics - Mean Error: 679.69% (Max: 4419.81%)
+                - Switch Time Acc: 36.68%
+                - Switch Duration Acc: 33.88%
+                - Plateau Current Acc: 7.89%
+  LRs - PINN: 9.29e-03, MLP: 9.29e-03
+2025-12-19 19:58:33 - Epoch [22/50]:
+  Train - MLP Loss: 0.173538, PINN Loss: 0.139044
+  Valid - MLP Loss: 0.142929, PINN Loss: 0.680187
+  Valid Metrics - Mean Error: 559.03% (Max: 3159.70%)
+                - Switch Time Acc: 35.20%
+                - Switch Duration Acc: 28.62%
+                - Plateau Current Acc: 28.29%
+  LRs - PINN: 9.04e-03, MLP: 9.04e-03
+2025-12-19 19:58:33 - New best model (mean_error) saved: 559.03%
+
+2025-12-19 19:58:33 - New best model saved with plateau current accuracy: 28.29%
+2025-12-19 19:59:06 - Epoch [23/50]:
+  Train - MLP Loss: 0.130850, PINN Loss: 0.107636
+  Valid - MLP Loss: 0.127405, PINN Loss: 0.631982
+  Valid Metrics - Mean Error: 529.78% (Max: 3239.28%)
+                - Switch Time Acc: 44.74%
+                - Switch Duration Acc: 31.91%
+                - Plateau Current Acc: 30.59%
+  LRs - PINN: 8.76e-03, MLP: 8.76e-03
+2025-12-19 19:59:06 - New best model (mean_error) saved: 529.78%
+
+2025-12-19 19:59:06 - New best model saved with plateau current accuracy: 30.59%
+2025-12-19 19:59:40 - Epoch [24/50]:
+  Train - MLP Loss: 0.279258, PINN Loss: 0.224620
+  Valid - MLP Loss: 0.204579, PINN Loss: 1.362808
+  Valid Metrics - Mean Error: 660.58% (Max: 4247.91%)
+                - Switch Time Acc: 33.55%
+                - Switch Duration Acc: 29.77%
+                - Plateau Current Acc: 8.88%
+  LRs - PINN: 8.45e-03, MLP: 8.45e-03
+2025-12-19 20:00:13 - Epoch [25/50]:
+  Train - MLP Loss: 0.225771, PINN Loss: 0.191786
+  Valid - MLP Loss: 0.120644, PINN Loss: 0.262207
+  Valid Metrics - Mean Error: 449.70% (Max: 3146.97%)
+                - Switch Time Acc: 52.96%
+                - Switch Duration Acc: 32.57%
+                - Plateau Current Acc: 7.57%
+  LRs - PINN: 8.11e-03, MLP: 8.11e-03
+2025-12-19 20:00:13 - New best model (mean_error) saved: 449.70%
+
+2025-12-19 20:00:46 - Epoch [26/50]:
+  Train - MLP Loss: 0.122261, PINN Loss: 0.110069
+  Valid - MLP Loss: 0.111856, PINN Loss: 0.604255
+  Valid Metrics - Mean Error: 471.92% (Max: 2915.74%)
+                - Switch Time Acc: 46.38%
+                - Switch Duration Acc: 39.31%
+                - Plateau Current Acc: 22.20%
+  LRs - PINN: 7.75e-03, MLP: 7.75e-03
+2025-12-19 20:01:20 - Epoch [27/50]:
+  Train - MLP Loss: 0.144268, PINN Loss: 0.129196
+  Valid - MLP Loss: 0.117346, PINN Loss: 0.775246
+  Valid Metrics - Mean Error: 491.55% (Max: 2784.79%)
+                - Switch Time Acc: 38.49%
+                - Switch Duration Acc: 40.30%
+                - Plateau Current Acc: 13.98%
+  LRs - PINN: 7.36e-03, MLP: 7.36e-03
+2025-12-19 20:01:54 - Epoch [28/50]:
+  Train - MLP Loss: 0.133744, PINN Loss: 0.115588
+  Valid - MLP Loss: 0.091770, PINN Loss: 0.488247
+  Valid Metrics - Mean Error: 403.18% (Max: 2552.54%)
+                - Switch Time Acc: 38.16%
+                - Switch Duration Acc: 37.99%
+                - Plateau Current Acc: 23.68%
+  LRs - PINN: 6.96e-03, MLP: 6.96e-03
+2025-12-19 20:01:54 - New best model (mean_error) saved: 403.18%
+
+2025-12-19 20:02:27 - Epoch [29/50]:
+  Train - MLP Loss: 0.115954, PINN Loss: 0.100917
+  Valid - MLP Loss: 0.048995, PINN Loss: 0.080301
+  Valid Metrics - Mean Error: 296.98% (Max: 2651.51%)
+                - Switch Time Acc: 48.52%
+                - Switch Duration Acc: 31.25%
+                - Plateau Current Acc: 23.19%
+  LRs - PINN: 6.54e-03, MLP: 6.54e-03
+2025-12-19 20:02:27 - New best model (mean_error) saved: 296.98%
+
+2025-12-19 20:03:01 - Epoch [30/50]:
+  Train - MLP Loss: 0.063641, PINN Loss: 0.060251
+  Valid - MLP Loss: 0.041955, PINN Loss: 0.058958
+  Valid Metrics - Mean Error: 264.56% (Max: 2362.34%)
+                - Switch Time Acc: 39.31%
+                - Switch Duration Acc: 39.80%
+                - Plateau Current Acc: 19.57%
+  LRs - PINN: 6.10e-03, MLP: 6.10e-03
+2025-12-19 20:03:01 - New best model (mean_error) saved: 264.56%
+
+2025-12-19 20:03:34 - Epoch [31/50]:
+  Train - MLP Loss: 0.047273, PINN Loss: 0.045646
+  Valid - MLP Loss: 0.036784, PINN Loss: 0.066577
+  Valid Metrics - Mean Error: 247.69% (Max: 2124.53%)
+                - Switch Time Acc: 56.41%
+                - Switch Duration Acc: 35.69%
+                - Plateau Current Acc: 30.76%
+  LRs - PINN: 5.66e-03, MLP: 5.66e-03
+2025-12-19 20:03:34 - New best model (mean_error) saved: 247.69%
+
+2025-12-19 20:03:34 - New best model saved with plateau current accuracy: 30.76%
+2025-12-19 20:04:08 - Epoch [32/50]:
+  Train - MLP Loss: 0.040176, PINN Loss: 0.039029
+  Valid - MLP Loss: 0.034437, PINN Loss: 0.056608
+  Valid Metrics - Mean Error: 232.82% (Max: 2031.14%)
+                - Switch Time Acc: 53.95%
+                - Switch Duration Acc: 40.30%
+                - Plateau Current Acc: 25.49%
+  LRs - PINN: 5.21e-03, MLP: 5.21e-03
+2025-12-19 20:04:08 - New best model (mean_error) saved: 232.82%
+
+2025-12-19 20:04:41 - Epoch [33/50]:
+  Train - MLP Loss: 0.040501, PINN Loss: 0.039585
+  Valid - MLP Loss: 0.032389, PINN Loss: 0.059878
+  Valid Metrics - Mean Error: 220.86% (Max: 1903.65%)
+                - Switch Time Acc: 57.89%
+                - Switch Duration Acc: 35.20%
+                - Plateau Current Acc: 28.45%
+  LRs - PINN: 4.77e-03, MLP: 4.77e-03
+2025-12-19 20:04:41 - New best model (mean_error) saved: 220.86%
+
+2025-12-19 20:05:14 - Epoch [34/50]:
+  Train - MLP Loss: 0.036360, PINN Loss: 0.035595
+  Valid - MLP Loss: 0.031096, PINN Loss: 0.059440
+  Valid Metrics - Mean Error: 211.23% (Max: 1836.21%)
+                - Switch Time Acc: 56.74%
+                - Switch Duration Acc: 32.24%
+                - Plateau Current Acc: 28.62%
+  LRs - PINN: 4.32e-03, MLP: 4.32e-03
+2025-12-19 20:05:14 - New best model (mean_error) saved: 211.23%
+
+2025-12-19 20:05:47 - Epoch [35/50]:
+  Train - MLP Loss: 0.034612, PINN Loss: 0.033960
+  Valid - MLP Loss: 0.029700, PINN Loss: 0.055538
+  Valid Metrics - Mean Error: 204.41% (Max: 1803.66%)
+                - Switch Time Acc: 57.40%
+                - Switch Duration Acc: 32.07%
+                - Plateau Current Acc: 30.10%
+  LRs - PINN: 3.88e-03, MLP: 3.88e-03
+2025-12-19 20:05:47 - New best model (mean_error) saved: 204.41%
+
+2025-12-19 20:06:20 - Epoch [36/50]:
+  Train - MLP Loss: 0.033393, PINN Loss: 0.032866
+  Valid - MLP Loss: 0.028479, PINN Loss: 0.052337
+  Valid Metrics - Mean Error: 200.19% (Max: 1788.87%)
+                - Switch Time Acc: 59.87%
+                - Switch Duration Acc: 32.40%
+                - Plateau Current Acc: 35.20%
+  LRs - PINN: 3.45e-03, MLP: 3.45e-03
+2025-12-19 20:06:20 - New best model (mean_error) saved: 200.19%
+
+2025-12-19 20:06:20 - New best model saved with switch time accuracy: 59.87%
+2025-12-19 20:06:20 - New best model saved with plateau current accuracy: 35.20%
+2025-12-19 20:06:54 - Epoch [37/50]:
+  Train - MLP Loss: 0.032206, PINN Loss: 0.031798
+  Valid - MLP Loss: 0.027471, PINN Loss: 0.049389
+  Valid Metrics - Mean Error: 197.41% (Max: 1776.32%)
+                - Switch Time Acc: 64.47%
+                - Switch Duration Acc: 32.57%
+                - Plateau Current Acc: 35.53%
+  LRs - PINN: 3.03e-03, MLP: 3.03e-03
+2025-12-19 20:06:54 - New best model (mean_error) saved: 197.41%
+
+2025-12-19 20:06:54 - New best model saved with switch time accuracy: 64.47%
+2025-12-19 20:06:54 - New best model saved with plateau current accuracy: 35.53%
+2025-12-19 20:07:27 - Epoch [38/50]:
+  Train - MLP Loss: 0.031018, PINN Loss: 0.030710
+  Valid - MLP Loss: 0.026690, PINN Loss: 0.046793
+  Valid Metrics - Mean Error: 194.90% (Max: 1757.05%)
+                - Switch Time Acc: 64.97%
+                - Switch Duration Acc: 32.89%
+                - Plateau Current Acc: 36.68%
+  LRs - PINN: 2.62e-03, MLP: 2.62e-03
+2025-12-19 20:07:27 - New best model (mean_error) saved: 194.90%
+
+2025-12-19 20:07:27 - New best model saved with switch time accuracy: 64.97%
+2025-12-19 20:07:27 - New best model saved with plateau current accuracy: 36.68%
+2025-12-19 20:08:00 - Epoch [39/50]:
+  Train - MLP Loss: 0.030085, PINN Loss: 0.029854
+  Valid - MLP Loss: 0.026179, PINN Loss: 0.045000
+  Valid Metrics - Mean Error: 192.01% (Max: 1730.05%)
+                - Switch Time Acc: 65.13%
+                - Switch Duration Acc: 35.03%
+                - Plateau Current Acc: 40.95%
+  LRs - PINN: 2.24e-03, MLP: 2.24e-03
+2025-12-19 20:08:00 - New best model (mean_error) saved: 192.01%
+
+2025-12-19 20:08:00 - New best model saved with switch time accuracy: 65.13%
+2025-12-19 20:08:00 - New best model saved with plateau current accuracy: 40.95%
+2025-12-19 20:08:33 - Epoch [40/50]:
+  Train - MLP Loss: 0.029340, PINN Loss: 0.029167
+  Valid - MLP Loss: 0.025820, PINN Loss: 0.043963
+  Valid Metrics - Mean Error: 189.16% (Max: 1702.20%)
+                - Switch Time Acc: 64.80%
+                - Switch Duration Acc: 36.35%
+                - Plateau Current Acc: 41.61%
+  LRs - PINN: 1.87e-03, MLP: 1.87e-03
+2025-12-19 20:08:33 - New best model (mean_error) saved: 189.16%
+
+2025-12-19 20:08:33 - New best model saved with plateau current accuracy: 41.61%
+2025-12-19 20:09:06 - Epoch [41/50]:
+  Train - MLP Loss: 0.028754, PINN Loss: 0.028624
+  Valid - MLP Loss: 0.025523, PINN Loss: 0.042925
+  Valid Metrics - Mean Error: 186.57% (Max: 1677.08%)
+                - Switch Time Acc: 65.30%
+                - Switch Duration Acc: 36.51%
+                - Plateau Current Acc: 41.78%
+  LRs - PINN: 1.54e-03, MLP: 1.54e-03
+2025-12-19 20:09:06 - New best model (mean_error) saved: 186.57%
+
+2025-12-19 20:09:06 - New best model saved with switch time accuracy: 65.30%
+2025-12-19 20:09:06 - New best model saved with plateau current accuracy: 41.78%
+2025-12-19 20:09:39 - Epoch [42/50]:
+  Train - MLP Loss: 0.028296, PINN Loss: 0.028200
+  Valid - MLP Loss: 0.025286, PINN Loss: 0.042131
+  Valid Metrics - Mean Error: 184.28% (Max: 1654.94%)
+                - Switch Time Acc: 65.79%
+                - Switch Duration Acc: 37.01%
+                - Plateau Current Acc: 41.61%
+  LRs - PINN: 1.23e-03, MLP: 1.23e-03
+2025-12-19 20:09:39 - New best model (mean_error) saved: 184.28%
+
+2025-12-19 20:09:39 - New best model saved with switch time accuracy: 65.79%
+2025-12-19 20:10:12 - Epoch [43/50]:
+  Train - MLP Loss: 0.027916, PINN Loss: 0.027846
+  Valid - MLP Loss: 0.025088, PINN Loss: 0.041488
+  Valid Metrics - Mean Error: 182.43% (Max: 1637.08%)
+                - Switch Time Acc: 66.28%
+                - Switch Duration Acc: 37.66%
+                - Plateau Current Acc: 41.61%
+  LRs - PINN: 9.49e-04, MLP: 9.49e-04
+2025-12-19 20:10:12 - New best model (mean_error) saved: 182.43%
+
+2025-12-19 20:10:12 - New best model saved with switch time accuracy: 66.28%
+2025-12-19 20:10:45 - Epoch [44/50]:
+  Train - MLP Loss: 0.027597, PINN Loss: 0.027548
+  Valid - MLP Loss: 0.024934, PINN Loss: 0.041098
+  Valid Metrics - Mean Error: 181.03% (Max: 1623.30%)
+                - Switch Time Acc: 66.94%
+                - Switch Duration Acc: 38.32%
+                - Plateau Current Acc: 41.28%
+  LRs - PINN: 7.02e-04, MLP: 7.02e-04
+2025-12-19 20:10:45 - New best model (mean_error) saved: 181.03%
+
+2025-12-19 20:10:45 - New best model saved with switch time accuracy: 66.94%
+2025-12-19 20:11:18 - Epoch [45/50]:
+  Train - MLP Loss: 0.027350, PINN Loss: 0.027315
+  Valid - MLP Loss: 0.024820, PINN Loss: 0.040810
+  Valid Metrics - Mean Error: 180.00% (Max: 1613.11%)
+                - Switch Time Acc: 67.43%
+                - Switch Duration Acc: 38.65%
+                - Plateau Current Acc: 40.95%
+  LRs - PINN: 4.91e-04, MLP: 4.91e-04
+2025-12-19 20:11:18 - New best model (mean_error) saved: 180.00%
+
+2025-12-19 20:11:18 - New best model saved with switch time accuracy: 67.43%
+2025-12-19 20:11:52 - Epoch [46/50]:
+  Train - MLP Loss: 0.027175, PINN Loss: 0.027152
+  Valid - MLP Loss: 0.024743, PINN Loss: 0.040634
+  Valid Metrics - Mean Error: 179.27% (Max: 1606.00%)
+                - Switch Time Acc: 67.60%
+                - Switch Duration Acc: 38.98%
+                - Plateau Current Acc: 40.95%
+  LRs - PINN: 3.15e-04, MLP: 3.15e-04
+2025-12-19 20:11:52 - New best model (mean_error) saved: 179.27%
+
+2025-12-19 20:11:52 - New best model saved with switch time accuracy: 67.60%
+2025-12-19 20:12:25 - Epoch [47/50]:
+  Train - MLP Loss: 0.027057, PINN Loss: 0.027044
+  Valid - MLP Loss: 0.024698, PINN Loss: 0.040554
+  Valid Metrics - Mean Error: 178.79% (Max: 1601.40%)
+                - Switch Time Acc: 67.60%
+                - Switch Duration Acc: 39.14%
+                - Plateau Current Acc: 41.12%
+  LRs - PINN: 1.77e-04, MLP: 1.77e-04
+2025-12-19 20:12:25 - New best model (mean_error) saved: 178.79%
+
+2025-12-19 20:12:58 - Epoch [48/50]:
+  Train - MLP Loss: 0.026986, PINN Loss: 0.026979
+  Valid - MLP Loss: 0.024675, PINN Loss: 0.040536
+  Valid Metrics - Mean Error: 178.51% (Max: 1598.81%)
+                - Switch Time Acc: 67.60%
+                - Switch Duration Acc: 39.14%
+                - Plateau Current Acc: 41.12%
+  LRs - PINN: 7.85e-05, MLP: 7.85e-05
+2025-12-19 20:12:58 - New best model (mean_error) saved: 178.51%
+
+2025-12-19 20:13:31 - Epoch [49/50]:
+  Train - MLP Loss: 0.026947, PINN Loss: 0.026945
+  Valid - MLP Loss: 0.024666, PINN Loss: 0.040531
+  Valid Metrics - Mean Error: 178.38% (Max: 1597.67%)
+                - Switch Time Acc: 67.60%
+                - Switch Duration Acc: 39.14%
+                - Plateau Current Acc: 41.12%
+  LRs - PINN: 1.92e-05, MLP: 1.92e-05
+2025-12-19 20:13:31 - New best model (mean_error) saved: 178.38%
+
+2025-12-19 20:14:05 - Epoch [50/50]:
+  Train - MLP Loss: 0.026931, PINN Loss: 0.026931
+  Valid - MLP Loss: 0.024665, PINN Loss: 0.040531
+  Valid Metrics - Mean Error: 178.35% (Max: 1597.35%)
+                - Switch Time Acc: 67.60%
+                - Switch Duration Acc: 39.14%
+                - Plateau Current Acc: 41.12%
+  LRs - PINN: 5.09e-08, MLP: 5.09e-08
+2025-12-19 20:14:05 - New best model (mean_error) saved: 178.35%
+
+2025-12-19 20:14:05 - Training completed!
+2025-12-19 20:14:05 - Best mean error achieved: 178.35%
+2025-12-19 20:50:02 - ==================================================
+2025-12-19 20:50:02 - Experiment: ctgan_generation_phase
+2025-12-19 20:50:02 - Start time: 2025-12-19 20:50:02
+2025-12-19 20:50:02 - ==================================================
+
+2025-12-19 20:50:02 - ==================================================
+2025-12-19 20:50:02 - Starting RRAM model training...
+2025-12-19 20:50:02 - ==================================================
+2025-12-19 20:50:02 - Device: cpu
+2025-12-19 20:50:02 - Configuration: {'epochs': 10, 'learning_rate_pinn': 0.0001, 'learning_rate_mlp': 0.0001, 'weight_decay_pinn': 1e-05, 'weight_decay_mlp': 1e-05, 'hidden_size': 32, 'embedding_size': 5, 'save_dir': 'checkpoints', 'data_path': 'data/rram_stanford_0.4V.mat', 'use_pde': False, 'use_full_dataset': False, 'voltage_stride': 0.2, 'exp_name': 'ctgan_generation_phase', 'seed': 42, 'train_ctgan': True, 'create_new_dataset': True, 'ctgan_epochs': 300, 'ctgan_model_path': 'ctgan_recommendation_results/ctgan_model.pkl', 'dataset_path': 'ctgan_recommendation_results/rram_ctgan_dataset.pt', 'target_energy': 5e-10, 'target_switching_time': 5e-09, 'target_endurance': 1000000.0, 'num_recommendations': 5, 'diverse_candidates': 10000, 'generate_pareto': True, 'output_dir': 'ctgan_recommendation_results', 'model_path': 'checkpoints/pinn_sparse.pth', 'device': 'cpu', 'min_pulse_width': 1e-09, 'max_energy_error_ratio': 0.0, 'energy_penalty_factor': 3.0, 'max_rows_per_file': 10000, 'num_sample_points': 50}
+2025-12-19 20:50:02 - 
+==================================================
+2025-12-19 20:50:02 - Training Dataset: Loading data...
+2025-12-19 20:50:02 - Found 651 sequences
+2025-12-19 20:50:05 - Using target voltage step for non-full dataset: 0.2
+2025-12-19 20:50:05 -   Final target voltages for Al2O3: [-2.0, -1.81, -1.6, -1.4, -1.18, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
+2025-12-19 20:50:05 -   Selected 14 sequences for Al2O3.
+2025-12-19 20:50:05 -   Final target voltages for HfO2: [-2.0, -1.8, -1.6, -1.46, -1.32, 0.4, 0.6, 0.8, 1.0, 1.14, 1.27, 1.44, 1.6, 1.8, 2.0]
+2025-12-19 20:50:05 -   Selected 15 sequences for HfO2.
+2025-12-19 20:50:05 -   Final target voltages for TiO2: [-2.0, -1.8, -1.6, -1.45, 0.4, 0.6, 0.8, 1.0, 1.2, 1.37, 1.54, 1.67, 1.8, 2.0]
+2025-12-19 20:50:05 -   Selected 14 sequences for TiO2.
+2025-12-19 20:50:05 - Total sequences selected across all materials: 43
+2025-12-19 20:50:05 - Using 43 selected sequences for TRAINING.
+2025-12-19 20:50:05 - 
+Dataset split information:
+2025-12-19 20:50:05 - Training set size: 43
+2025-12-19 20:50:05 - Percentage of total: 6.6%
+2025-12-19 20:50:05 - Validation Dataset: Loading data...
+2025-12-19 20:50:05 - Found 651 sequences
+2025-12-19 20:50:07 - Using target voltage step for non-full dataset: 0.2
+2025-12-19 20:50:07 -   Selected 14 sequences for Al2O3.
+2025-12-19 20:50:07 -   Selected 15 sequences for HfO2.
+2025-12-19 20:50:07 -   Selected 14 sequences for TiO2.
+2025-12-19 20:50:07 - Total sequences selected across all materials: 43
+2025-12-19 20:50:07 - Using 608 sequences for VALIDATION (all excluding training targets).
+2025-12-19 20:50:07 - 
+Dataset split information:
+2025-12-19 20:50:07 - Validation set size: 608
+2025-12-19 20:50:07 - Percentage of total: 93.4%
+2025-12-19 20:50:08 - 
+Dataset Material Distribution for Training:
+2025-12-19 20:50:08 - HfO2: 15 sequences (34.9%)
+2025-12-19 20:50:08 - TiO2: 14 sequences (32.6%)
+2025-12-19 20:50:08 - Al2O3: 14 sequences (32.6%)
+2025-12-19 20:50:08 - 
+Dataset Material Distribution for Validation:
+2025-12-19 20:50:08 - Al2O3: 203 sequences (33.4%)
+2025-12-19 20:50:08 - TiO2: 203 sequences (33.4%)
+2025-12-19 20:50:08 - HfO2: 202 sequences (33.2%)
+2025-12-19 20:51:47 - Epoch [1/10]:
+  Train - MLP Loss: 1.612249, PINN Loss: 1.549298
+  Valid - MLP Loss: 0.775882, PINN Loss: 1.880023
+  Valid Metrics - Mean Error: 1430.05% (Max: 8418.75%)
+                - Switch Time Acc: 53.12%
+                - Switch Duration Acc: 78.12%
+                - Plateau Current Acc: 2.30%
+  LRs - PINN: 2.83e-03, MLP: 2.83e-03
+2025-12-19 20:51:47 - New best model (mean_error) saved: 1430.05%
+
+2025-12-19 20:51:47 - New best model saved with switch time accuracy: 53.12%
+2025-12-19 20:51:47 - New best model saved with switch duration accuracy: 78.12%
+2025-12-19 20:51:47 - New best model saved with plateau current accuracy: 2.30%
+2025-12-19 20:52:39 - Epoch [2/10]:
+  Train - MLP Loss: 0.714010, PINN Loss: 0.648992
+  Valid - MLP Loss: 0.672923, PINN Loss: 1.833903
+  Valid Metrics - Mean Error: 1565.80% (Max: 6817.51%)
+                - Switch Time Acc: 52.47%
+                - Switch Duration Acc: 82.07%
+                - Plateau Current Acc: 2.63%
+  LRs - PINN: 7.67e-03, MLP: 7.67e-03
+2025-12-19 20:52:39 - New best model saved with switch duration accuracy: 82.07%
+2025-12-19 20:52:39 - New best model saved with plateau current accuracy: 2.63%
+2025-12-19 20:53:30 - Epoch [3/10]:
+  Train - MLP Loss: 0.832853, PINN Loss: 0.605196
+  Valid - MLP Loss: 0.563844, PINN Loss: 1.673930
+  Valid Metrics - Mean Error: 970.11% (Max: 3504.40%)
+                - Switch Time Acc: 36.68%
+                - Switch Duration Acc: 57.24%
+                - Plateau Current Acc: 0.49%
+  LRs - PINN: 1.00e-02, MLP: 1.00e-02
+2025-12-19 20:53:30 - New best model (mean_error) saved: 970.11%
+
+2025-12-19 20:54:21 - Epoch [4/10]:
+  Train - MLP Loss: 0.662089, PINN Loss: 0.530808
+  Valid - MLP Loss: 0.379869, PINN Loss: 1.490607
+  Valid Metrics - Mean Error: 816.52% (Max: 2861.30%)
+                - Switch Time Acc: 34.21%
+                - Switch Duration Acc: 59.38%
+                - Plateau Current Acc: 0.49%
+  LRs - PINN: 9.48e-03, MLP: 9.48e-03
+2025-12-19 20:54:21 - New best model (mean_error) saved: 816.52%
+
+2025-12-19 20:55:09 - Epoch [5/10]:
+  Train - MLP Loss: 0.462797, PINN Loss: 0.392625
+  Valid - MLP Loss: 0.338533, PINN Loss: 1.449308
+  Valid Metrics - Mean Error: 696.91% (Max: 2679.15%)
+                - Switch Time Acc: 34.21%
+                - Switch Duration Acc: 60.03%
+                - Plateau Current Acc: 1.32%
+  LRs - PINN: 8.08e-03, MLP: 8.08e-03
+2025-12-19 20:55:09 - New best model (mean_error) saved: 696.91%
+
+2025-12-19 20:56:00 - Epoch [6/10]:
+  Train - MLP Loss: 0.396159, PINN Loss: 0.351655
+  Valid - MLP Loss: 0.333754, PINN Loss: 1.444519
+  Valid Metrics - Mean Error: 705.26% (Max: 2740.76%)
+                - Switch Time Acc: 34.38%
+                - Switch Duration Acc: 60.03%
+                - Plateau Current Acc: 0.99%
+  LRs - PINN: 6.06e-03, MLP: 6.06e-03
+2025-12-19 20:56:51 - Epoch [7/10]:
+  Train - MLP Loss: 0.367921, PINN Loss: 0.340840
+  Valid - MLP Loss: 0.325202, PINN Loss: 1.435912
+  Valid Metrics - Mean Error: 743.84% (Max: 2611.96%)
+                - Switch Time Acc: 30.26%
+                - Switch Duration Acc: 59.21%
+                - Plateau Current Acc: 0.33%
+  LRs - PINN: 3.84e-03, MLP: 3.84e-03
+2025-12-19 20:57:42 - Epoch [8/10]:
+  Train - MLP Loss: 0.352587, PINN Loss: 0.338954
+  Valid - MLP Loss: 0.285355, PINN Loss: 1.396081
+  Valid Metrics - Mean Error: 703.32% (Max: 3149.04%)
+                - Switch Time Acc: 27.47%
+                - Switch Duration Acc: 55.43%
+                - Plateau Current Acc: 0.82%
+  LRs - PINN: 1.84e-03, MLP: 1.84e-03
+2025-12-19 20:58:34 - Epoch [9/10]:
+  Train - MLP Loss: 0.302203, PINN Loss: 0.299305
+  Valid - MLP Loss: 0.267283, PINN Loss: 1.378055
+  Valid Metrics - Mean Error: 631.53% (Max: 3710.25%)
+                - Switch Time Acc: 27.30%
+                - Switch Duration Acc: 53.95%
+                - Plateau Current Acc: 0.49%
+  LRs - PINN: 4.73e-04, MLP: 4.73e-04
+2025-12-19 20:58:34 - New best model (mean_error) saved: 631.53%
+
+2025-12-19 20:59:25 - Epoch [10/10]:
+  Train - MLP Loss: 0.278588, PINN Loss: 0.278323
+  Valid - MLP Loss: 0.266814, PINN Loss: 1.377579
+  Valid Metrics - Mean Error: 631.04% (Max: 3678.43%)
+                - Switch Time Acc: 27.47%
+                - Switch Duration Acc: 53.62%
+                - Plateau Current Acc: 0.66%
+  LRs - PINN: 3.12e-07, MLP: 3.12e-07
+2025-12-19 20:59:25 - New best model (mean_error) saved: 631.04%
+
+2025-12-19 20:59:25 - Training completed!
+2025-12-19 20:59:25 - Best mean error achieved: 631.04%
+2025-12-19 21:09:24 - ==================================================
+2025-12-19 21:09:24 - Experiment: ctgan_only_run
+2025-12-19 21:09:24 - Start time: 2025-12-19 21:09:24
+2025-12-19 21:09:24 - ==================================================
+
+2025-12-19 21:09:24 - ==================================================
+2025-12-19 21:09:24 - Starting RRAM model training...
+2025-12-19 21:09:24 - ==================================================
+2025-12-19 21:09:24 - Device: cpu
+2025-12-19 21:09:24 - Configuration: {'epochs': 0, 'learning_rate_pinn': 0.0001, 'learning_rate_mlp': 0.0001, 'weight_decay_pinn': 1e-05, 'weight_decay_mlp': 1e-05, 'hidden_size': 32, 'embedding_size': 5, 'save_dir': 'checkpoints', 'data_path': 'data/rram_stanford_0.4V.mat', 'use_pde': False, 'use_full_dataset': False, 'voltage_stride': 0.2, 'exp_name': 'ctgan_only_run', 'seed': 42, 'train_ctgan': True, 'create_new_dataset': True, 'ctgan_epochs': 300, 'ctgan_model_path': 'ctgan_recommendation_results/ctgan_model.pkl', 'dataset_path': 'ctgan_recommendation_results/rram_ctgan_dataset.pt', 'target_energy': 5e-10, 'target_switching_time': 5e-09, 'target_endurance': 1000000.0, 'num_recommendations': 5, 'diverse_candidates': 10000, 'generate_pareto': True, 'output_dir': 'ctgan_recommendation_results', 'model_path': 'checkpoints/pinn_sparse.pth', 'device': 'cpu', 'min_pulse_width': 1e-09, 'max_energy_error_ratio': 0.0, 'energy_penalty_factor': 3.0, 'max_rows_per_file': 10000, 'num_sample_points': 50}
+2025-12-19 21:09:24 - 
+==================================================
+2025-12-19 21:09:24 - Training Dataset: Loading data...
+2025-12-19 21:09:24 - Found 651 sequences
+2025-12-19 21:09:26 - Using target voltage step for non-full dataset: 0.2
+2025-12-19 21:09:26 -   Final target voltages for Al2O3: [-2.0, -1.81, -1.6, -1.4, -1.18, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
+2025-12-19 21:09:26 -   Selected 14 sequences for Al2O3.
+2025-12-19 21:09:26 -   Final target voltages for HfO2: [-2.0, -1.8, -1.6, -1.46, -1.32, 0.4, 0.6, 0.8, 1.0, 1.14, 1.27, 1.44, 1.6, 1.8, 2.0]
+2025-12-19 21:09:26 -   Selected 15 sequences for HfO2.
+2025-12-19 21:09:26 -   Final target voltages for TiO2: [-2.0, -1.8, -1.6, -1.45, 0.4, 0.6, 0.8, 1.0, 1.2, 1.37, 1.54, 1.67, 1.8, 2.0]
+2025-12-19 21:09:26 -   Selected 14 sequences for TiO2.
+2025-12-19 21:09:26 - Total sequences selected across all materials: 43
+2025-12-19 21:09:26 - Using 43 selected sequences for TRAINING.
+2025-12-19 21:09:26 - 
+Dataset split information:
+2025-12-19 21:09:26 - Training set size: 43
+2025-12-19 21:09:26 - Percentage of total: 6.6%
+2025-12-19 21:09:26 - Validation Dataset: Loading data...
+2025-12-19 21:09:26 - Found 651 sequences
+2025-12-19 21:09:29 - Using target voltage step for non-full dataset: 0.2
+2025-12-19 21:09:29 -   Selected 14 sequences for Al2O3.
+2025-12-19 21:09:29 -   Selected 15 sequences for HfO2.
+2025-12-19 21:09:29 -   Selected 14 sequences for TiO2.
+2025-12-19 21:09:29 - Total sequences selected across all materials: 43
+2025-12-19 21:09:29 - Using 608 sequences for VALIDATION (all excluding training targets).
+2025-12-19 21:09:29 - 
+Dataset split information:
+2025-12-19 21:09:29 - Validation set size: 608
+2025-12-19 21:09:29 - Percentage of total: 93.4%
+2025-12-19 21:09:29 - 
+Dataset Material Distribution for Training:
+2025-12-19 21:09:29 - HfO2: 15 sequences (34.9%)
+2025-12-19 21:09:29 - TiO2: 14 sequences (32.6%)
+2025-12-19 21:09:29 - Al2O3: 14 sequences (32.6%)
+2025-12-19 21:09:29 - 
+Dataset Material Distribution for Validation:
+2025-12-19 21:09:29 - Al2O3: 203 sequences (33.4%)
+2025-12-19 21:09:29 - TiO2: 203 sequences (33.4%)
+2025-12-19 21:09:29 - HfO2: 202 sequences (33.2%)

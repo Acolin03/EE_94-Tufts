@@ -1,0 +1,17 @@
+python run_ctgan_gen.py --train_ctgan --create_new_dataset --no-generate-pareto \
+    --ctgan_epochs 300 \
+    --max_rows_per_file 10000 \
+    --output_dir ctgan_recommendation_results \
+    --model_path checkpoints/pinn_sparse.pth \
+    --data_path data/rram_stanford.mat \
+    --ctgan_model_path ctgan_recommendation_results/ctgan_model.pkl \
+    --dataset_path ctgan_recommendation_results/rram_ctgan_dataset.pt
+
+
+python run_ctgan_gen.py --generate_pareto \
+    --diverse_candidates 10000 \
+    --output_dir ctgan_recommendation_results \
+    --model_path checkpoints/pinn_sparse.pth \
+    --data_path data/rram_stanford.mat \
+    --ctgan_model_path ctgan_recommendation_results/ctgan_model.pkl \
+    --dataset_path ctgan_recommendation_results/rram_ctgan_dataset.pt
